@@ -19,7 +19,7 @@ class adminController{
             }else {
                 const isPassMatch = comparePassword(password, cekData.password)
                 if (!isPassMatch) {
-                    return res.status(200).json({message : 'Invalid Email | Password'})
+                    return res.status(400).json({message : 'Invalid Email | Password'})
                 } else {
                     const token = generateToken({
                         id : cekData.id,
