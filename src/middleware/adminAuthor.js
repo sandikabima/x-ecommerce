@@ -1,5 +1,5 @@
 const adminAuthor = ((req, res, next)=>{
-    console.log('ini di authorization')
+    req.loggedUser.role === 'admin' ? next() : res.status(400).json({messagge : 'Invalid JWT'})
 })
 
 module.exports = adminAuthor
