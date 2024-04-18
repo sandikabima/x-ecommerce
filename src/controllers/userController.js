@@ -12,7 +12,7 @@ class userController{
                 }
             })
            if (cekData){
-            return res.status(200).json({message : "Email is registered"})
+            return res.status(409).json({message : "Email is registered"})
            } else {
             let data = await User.create({
                 email : email,
@@ -21,7 +21,7 @@ class userController{
             return response(200, data, 'Registrasi successfully', res)
            }
         } catch (error) {
-            return res.status(500).json({message : error})
+            return res.status(400).json({message : "Invalid Request"})
         }
     }
 
