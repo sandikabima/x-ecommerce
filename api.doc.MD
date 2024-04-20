@@ -72,7 +72,7 @@ _Request Body_
 }
 ```
 
-_Response (409 409 - Conflict)_
+_Response (409 - Conflict)_
 
 ```
 {
