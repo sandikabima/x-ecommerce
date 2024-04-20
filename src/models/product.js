@@ -1,15 +1,10 @@
-const {DataTypes, Model} = require('sequelize')
-const sequelize = require('../utils/conn')
+const {Sequelize} = require('sequelize')
 
-class Product extends Model{}
+const product = {
+    name : Sequelize.STRING,
+    image_url : Sequelize.TEXT,
+    price : Sequelize.INTEGER,
+    stock : Sequelize.INTEGER
+}
 
-Product.init({
-    name : DataTypes.STRING,
-    image_url : DataTypes.TEXT,
-    price : DataTypes.INTEGER,
-    stock : DataTypes.INTEGER
-}, {sequelize, tableName : 'Product'})
-
-sequelize.sync()
-
-module.exports = Product
+module.exports = product

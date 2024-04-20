@@ -1,5 +1,5 @@
 const {verifyToken} = require('../helpers/jwt')
-const User = require('../models/user')
+const {user} = require('../models')
 
 const autenticate = ( async (req, res, next) =>{
     try {
@@ -8,7 +8,7 @@ const autenticate = ( async (req, res, next) =>{
             return res.status(404).json({message : 'Invalid Token'})
         } else {
             const decoded = verifyToken(access_token)
-            let data = await User.findOne({
+            let data = await user.findOne({
                 where : {
                     email : decoded.email
                 }

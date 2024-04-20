@@ -1,36 +1,23 @@
-const {DataTypes, Model} = require('sequelize')
-const sequelize = require('../utils/conn')
-const {hashPassword} = require('../helpers/bcrypt')
+const {Sequelize} = require('sequelize')
 
-
-class User extends Model{}
-
-User.init({
+const user = {
     id : {
-        type : DataTypes.INTEGER,
+        type : Sequelize.INTEGER,
         primaryKey : true,
         autoIncrement : true,
         allowNull : false
     },
     email : {
-        type : DataTypes.STRING,
+        type : Sequelize.STRING,
         allowNull : false
     },
     password : {
-        type : DataTypes.STRING,
+        type : Sequelize.STRING,
         allowNull : false
     },
     role : {
-        type : DataTypes.STRING,
+        type : Sequelize.STRING
     }
+}
 
-},{ hooks : {
-    beforeCreate(user){
-        user.role = 'costumer'
-        user.password = hashPassword(user.password)
-    }
-}, sequelize, tableName : 'users' })
-
-sequelize.sync()
-
-module.exports = User
+module.exports = user
