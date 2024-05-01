@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 3000
 const router = require('./router')
+require('dotenv').config()
 
 const bodyParser = require('body-parser')
 
@@ -16,6 +16,6 @@ app.get("/health", (req, res) => {
 
 app.use('/', router)
 
-app.listen(port, ()=>{
-    console.log('Exam listening at port', port)
+app.listen(process.env.PORT, ()=>{
+    console.log('Exam listening at port', process.env.PORT)
 })
