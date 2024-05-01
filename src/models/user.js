@@ -1,6 +1,7 @@
 const {Sequelize} = require('sequelize')
 
 const user = {
+
     id : {
         type : Sequelize.INTEGER,
         primaryKey : true,
@@ -19,5 +20,6 @@ const user = {
         type : Sequelize.STRING
     }
 }
+
 
 module.exports = user
