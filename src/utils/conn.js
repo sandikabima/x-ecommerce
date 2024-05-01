@@ -1,5 +1,8 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
+const pg = require('pg')
+
+const { Pool } = pg;
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -16,5 +19,10 @@ const sequelize = new Sequelize(
         }
     }
 );
+
+
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL ,
+})
 
 module.exports = sequelize
