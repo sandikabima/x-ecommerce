@@ -9,7 +9,9 @@ app.use(bodyParser.json())
 
 app.use(express.json())
 
-
+app.get("/health", (req, res) => {
+    res.send('coba')
+})
 
 
 app.use('/', router)
